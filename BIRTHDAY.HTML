@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Chelsea Annisa ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    background:linear-gradient(-45deg,#ff4d6d,#ff758f,#ffb347,#4cc9f0);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.page{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    color:white;
+}
+
+.hidden{
+    display:none;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    padding:35px;
+    border-radius:25px;
+    width:90%;
+    max-width:700px;
+    box-shadow:0 0 25px rgba(255,255,255,.3);
+}
+
+h1{
+    margin-bottom:15px;
+}
+
+button{
+    border:none;
+    padding:14px 28px;
+    margin:10px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.yes{
+    background:white;
+    color:#ff4d6d;
+}
+
+.no{
+    background:#ff4d6d;
+    color:white;
+}
+
+.envelope{
+    font-size:140px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.envelope:hover{
+    transform:scale(1.1);
+}
+
+.gif{
+    width:280px;
+    max-width:90%;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.click-text{
+    font-size:24px;
+    cursor:pointer;
+    animation:pulse 1s infinite alternate;
+}
+
+@keyframes pulse{
+    from{transform:scale(1);}
+    to{transform:scale(1.08);}
+}
+
+.message{
+    font-size:20px;
+    line-height:1.8;
+}
+
+.confetti{
+    position:absolute;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100vh);
+    }
+    to{
+        transform:translateY(100vh);
+    }
+}
+
+.typing{
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:3px solid white;
+    width:0;
+    margin:auto;
+    animation:typing 4s steps(30,end) forwards;
+}
+
+@keyframes typing{
+    from{width:0}
+    to{width:100%}
+}
+</style>
+</head>
+<body>
+
+<audio id="birthdayMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+    <div class="card">
+        <h1>🎉 Selamat Ulang Tahun 🎉</h1>
+        <h2>Chelsea Annisa ❤️</h2>
+
+        <p style="font-size:22px;margin-top:10px;">
+            Dari Goki
+        </p>
+
+        <br>
+
+        <button class="yes" onclick="openGift()">
+            Mau Dibuka 🎁
+        </button>
+
+        <button class="no" id="noBtn">
+            Gak Mau 🙄
+        </button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+    <div class="card">
+        <div class="envelope" onclick="openEnvelope()">
+            💌
+        </div>
+
+        <h2>Ada surat untuk Chelsea Annisa ❤️</h2>
+        <br>
+        <p>Klik amplopnya ya...</p>
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+    <div class="card">
+
+        <img
+        class="gif"
+        src="https://media1.tenor.com/m/wQeo-dOgL9QAAAAd/nailong-crying-nailong.gif"
+        alt="Nailong">
+
+        <div class="click-text" onclick="showMessage()">
+            📩 Klik Untuk Membaca
+        </div>
+
+    </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page hidden" id="page4">
+    <div class="card">
+
+        <h1 class="typing">
+            ❤️ Untuk Chelsea Annisa ❤️
+        </h1>
+
+        <br><br>
+
+        <div class="message">
+            Selamat ulang tahun ya cantik. ❤️
+            <br><br>
+
+            Semoga di umur yang baru ini kamu selalu diberi
+            kesehatan, kebahagiaan, dan segala hal baik yang
+            kamu harapkan bisa tercapai.
+            <br><br>
+
+            Jaga kesehatan, jangan terlalu sering begadang,
+            dan jangan lupa istirahat yang cukup.
+            <br><br>
+
+            Aku tahu harimu berat,
+            tapi aku berharap semuanya akan membaik
+            seiring berjalannya waktu.
+            <br><br>
+
+            Semoga harimu menyenangkan dan tahun ini menjadi
+            tahun yang lebih baik untukmu.
+            ✨🎉
+            <br><br>
+
+            — Goki ❤️
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+// CONFETTI
+for(let i=0;i<150;i++){
+
+    const c=document.createElement("div");
+
+    c.classList.add("confetti");
+
+    c.style.left=Math.random()*100+"vw";
+
+    c.style.background=
+    `hsl(${Math.random()*360},100%,60%)`;
+
+    c.style.animationDuration=
+    (Math.random()*4+3)+"s";
+
+    document.body.appendChild(c);
+}
+
+// TOMBOL KABUR
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+    const x=Math.random()*(window.innerWidth-150);
+    const y=Math.random()*(window.innerHeight-100);
+
+    noBtn.style.position="absolute";
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+});
+
+// PAGE 1 -> PAGE 2
+function openGift(){
+
+    const music =
+    document.getElementById("birthdayMusic");
+
+    if(music){
+        music.play().catch(()=>{});
+    }
+
+    document
+    .getElementById("page1")
+    .classList.add("hidden");
+
+    document
+    .getElementById("page2")
+    .classList.remove("hidden");
+}
+
+// PAGE 2 -> PAGE 3
+function openEnvelope(){
+
+    document
+    .getElementById("page2")
+    .classList.add("hidden");
+
+    document
+    .getElementById("page3")
+    .classList.remove("hidden");
+}
+
+// PAGE 3 -> PAGE 4
+function showMessage(){
+
+    document
+    .getElementById("page3")
+    .classList.add("hidden");
+
+    document
+    .getElementById("page4")
+    .classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
